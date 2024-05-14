@@ -1,0 +1,80 @@
+###
+
+GET http://localhost:3000/api/users
+
+###
+
+POST http://localhost:3000/api/users
+Content-type: application/json 
+
+{
+    "fullName": "John Doe",
+    "email": "john@example.com",
+    "password": "password123",
+    "phoneNumber": "1234567890",
+    "cgpa": 3.5,
+    "batch": "2020",
+    "department": "Computer Science",
+    "photo": "https://example.com/john.jpg",
+    "isIndustryExpert": true,
+    "isHigherStudyExpert": false,
+    "currentEducationOrJob": {
+        "designation": "Software Engineer",
+        "companyOrInstitution": "ABC Tech"
+    },
+    "educationHistory": [
+        {
+        "institution": "XYZ University",
+        "degree": "Bachelor of Science in Computer Science",
+        "startDate": "2016-08-01",
+        "endDate": "2020-05-30"
+        }
+    ],
+    "careerHistory": [
+        {
+        "company": "XYZ Tech",
+        "position": "Software Developer",
+        "startDate": "2020-06-01",
+        "endDate": null
+        }
+    ],
+    "projects": [
+        {
+        "title": "E-commerce Website",
+        "description": "Developed a fully functional e-commerce website using React and Node.js",
+        "startDate": "2021-01-01",
+        "endDate": "2021-03-01",
+        "link": "https://example.com/ecommerce"
+        }
+    ],
+    "publications": [
+        {
+        "title": "Machine Learning Techniques for Sentiment Analysis",
+        "publicationDate": "2020-12-15",
+        "publisher": "IEEE Transactions on Neural Networks",
+        "link": "https://example.com/ml_sentiment_analysis"
+        }
+    ],
+    "awards": [
+        {
+        "title": "Outstanding Employee of the Year",
+        "organization": "XYZ Tech",
+        "dateReceived": "2021-12-31",
+        "description": "Awarded for outstanding performance and dedication"
+        }
+    ],
+    "activities": [
+        {
+        "name": "Computer Science Club",
+        "role": "President",
+        "startDate": "2018-09-01",
+        "endDate": "2020-05-30"
+        }
+    ],
+    "isVerified": true,
+    "isAdmin": false,
+    "isModerator": false
+}
+
+
+###
