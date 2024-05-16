@@ -1,5 +1,5 @@
 {
-  "name": "fec-alumni-client-side",
+  "name": "fec-alumni-server-side",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
