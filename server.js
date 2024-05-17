@@ -12,6 +12,18 @@ app.use(express.json());
 // application routes
 app.get('/', (req, res) => res.send("Its working"));
 app.use('/api/users', UserRoute);
+// Blog
+// Event
+// Opportunity
+
+
+// Blog {
+//     id String pk
+//     title String
+//     content String
+//     author String
+//     createdAt Date
+// }
 
 
 app.listen(port, () => {
