@@ -16,14 +16,7 @@ app.use('/api/users', UserRoute);
 // Event
 // Opportunity
 
-
-// Blog {
-//     id String pk
-//     title String
-//     content String
-//     author String
-//     createdAt Date
-// }
+// ekhane aktu haat marlam
 
 
 app.listen(port, () => {
