@@ -102,5 +102,8 @@ Content-type: application/json
 }
 ###
 
+#* Delete an opportunity
+DELETE http://localhost:3000/api/opportunities/66674c814dcd99e499818d0e
+
 
 ###

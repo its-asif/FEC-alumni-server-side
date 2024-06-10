@@ -1,11 +1,11 @@
-const Opportunity = require('../schema/opportunitySchema');
+const Opportunity = require('../schema/OpportunitySchema');
 
 
 // Get all the Opportunities
 exports.getAllOpportunities = async (req, res) => {
     try {
-        const Opportunities = await Opportunity.find();
-        res.json(Opportunities);
+        const opportunities = await Opportunity.find();
+        res.json(opportunities);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -14,8 +14,8 @@ exports.getAllOpportunities = async (req, res) => {
 // Get a single Opportunity
 exports.getOpportunityById = async (req, res) => {
     try {
-        const Opportunity = await Opportunity.findById(req.params.id);
-        res.json(Opportunity);
+        const opportunity = await Opportunity.findById(req.params.id);
+        res.json(opportunity);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -23,14 +23,10 @@ exports.getOpportunityById = async (req, res) => {
 
 // Create a new Opportunity
 exports.createOpportunity = async (req, res) => {
-    console.log(req.body);
     const { type, title, description, postedBy } = req.body;
     try {
         const opportunity = new Opportunity({ type, title, description, postedBy });
         await opportunity.save();
-        
-        // debug
-        console.log(Opportunity);
         res.status(201).json(Opportunity);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -64,9 +60,9 @@ exports.updateOpportunity = async (req, res) => {
 // toggle varification a Opportunity
 exports.toggleVerification = async (req, res) => {
     try {
-        const Opportunity = await Opportunity.findById(req.params.id);
-        Opportunity.isVerified = !Opportunity.isVerified;
-        await Opportunity.save();
+        const opportunity = await Opportunity.findById(req.params.id);
+        opportunity.isVerified = !opportunity.isVerified;
+        await opportunity.save();
         res.json({ message: "Opportunity verification toggled successfully" });
     }
     catch (err) {
@@ -77,8 +73,8 @@ exports.toggleVerification = async (req, res) => {
 // Get all the verified Opportunities
 exports.getAllVerifiedOpportunities = async (req, res) => {
     try {
-        const Opportunities = await Opportunity.find({ isVerified: true });
-        res.json(Opportunities);
+        const opportunities = await Opportunity.find({ isVerified: true });
+        res.json(opportunities);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -87,8 +83,8 @@ exports.getAllVerifiedOpportunities = async (req, res) => {
 // Get all the unverified Opportunities
 exports.getAllUnverifiedOpportunities = async (req, res) => {
     try {
-        const Opportunities = await Opportunity.find({ isVerified: false });
-        res.json(Opportunities);
+        const opportunities = await Opportunity.find({ isVerified: false });
+        res.json(opportunities);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -97,8 +93,8 @@ exports.getAllUnverifiedOpportunities = async (req, res) => {
 // Get all the Opportunities of a particular type
 exports.getAllOpportunitiesOfType = async (req, res) => {
     try {
-        const Opportunities = await Opportunity.find({ type: req.params.type });
-        res.json(Opportunities);
+        const opportunities = await Opportunity.find({ type: req.params.type });
+        res.json(opportunities);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -107,8 +103,8 @@ exports.getAllOpportunitiesOfType = async (req, res) => {
 // Get all the Opportunities posted by a particular user
 exports.getAllOpportunitiesByUser = async (req, res) => {
     try {
-        const Opportunities = await Opportunity.find({ postedBy: req.params.id });
-        res.json(Opportunities);
+        const opportunities = await Opportunity.find({ postedBy: req.params.id });
+        res.json(opportunities);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -117,8 +113,8 @@ exports.getAllOpportunitiesByUser = async (req, res) => {
 // search : get all the Opportunities with title containing the search query
 exports.searchOpportunities = async (req, res) => {
     try {
-        const Opportunities = await Opportunity.find({ title: { $regex: req.params.query, $options: 'i' } });
-        res.json(Opportunities);
+        const opportunities = await Opportunity.find({ title: { $regex: req.params.query, $options: 'i' } });
+        res.json(opportunities);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

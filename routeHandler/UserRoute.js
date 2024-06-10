@@ -3,6 +3,13 @@ const router = express.Router();
 const userController = require('../controllers/UserController');
 
 
+// middleware that is specific to this router
+router.use(function timeLog(req, res, next) {
+    console.log('User Route: ', req.originalUrl);
+    console.log('Time: ', Date.now());
+    next();
+});
+
 // Get all the users
 router.get('/', userController.getAllUsers);
 
