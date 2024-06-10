@@ -15,7 +15,7 @@ const opportunitySchema = new mongoose.Schema({
         required: true 
     },
     postedBy: { 
-        type: String, // ObjectId
+        type: String,
         ref: 'User', 
         required: true 
     },

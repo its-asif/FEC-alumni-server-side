@@ -3,7 +3,13 @@
 GET http://localhost:3000/api/users
 
 ###
+#! User
 
+#* Get all users
+GET http://localhost:3000/api/users
+###
+
+#* Create a user
 POST http://localhost:3000/api/users
 Content-type: application/json 
 
@@ -75,6 +81,26 @@ Content-type: application/json
     "isAdmin": false,
     "isModerator": false
 }
+
+###
+
+#! Opportunity
+
+#* Get all opportunities
+GET http://localhost:3000/api/opportunities
+###
+
+#* Create an opportunity
+POST http://localhost:3000/api/opportunities
+Content-type: application/json
+
+{
+    "type": "Scholarship",
+    "title": "FEC Scholarship 2024",
+    "description": "Sams giving away scholarships to students who are interested in PHP and JSP",
+    "postedBy": "666746d3a27909055f5ce7f9"
+}
+###
 
 
 ###
