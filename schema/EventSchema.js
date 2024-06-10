@@ -18,7 +18,7 @@ const eventSchema = new mongoose.Schema({
         required: true
     },
     postedBy: {
-        type: Schema.Types.ObjectId,
+        type: String, // ObjectId
         ref: 'User',
         required: true
     },
