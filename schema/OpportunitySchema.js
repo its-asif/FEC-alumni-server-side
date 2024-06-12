@@ -1,5 +1,6 @@
 const mongoose = require('../db');
 
+
 const opportunitySchema = new mongoose.Schema({
     type: { 
         type: String, 

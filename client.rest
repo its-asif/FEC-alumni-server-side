@@ -86,6 +86,19 @@ Content-type: application/json
 
 #! Opportunity
 
+# 1. Get all the Opportunities
+# 2. Get a single Opportunity
+# 3. Create a new Opportunity
+# 4. Delete a Opportunity
+# 5. Update a Opportunity
+# 6. Toggle verification of a Opportunity
+# 7. Get all the verified Opportunities
+# 8. Get all the unverified Opportunities
+# 9. Get all the Opportunities of a particular type
+# 10. Get all the Opportunities posted by a particular user
+# 11. Search for Opportunities with title containing the search query
+
+
 #* Get all opportunities
 GET http://localhost:3000/api/opportunities
 ###
@@ -94,16 +107,58 @@ GET http://localhost:3000/api/opportunities
 POST http://localhost:3000/api/opportunities
 Content-type: application/json
 
+# {
+#     "type": "Scholarship",
+#     "title": "FEC Scholarship 2024",
+#     "description": "Sams giving away scholarships to students who are interested in PHP and JSP",
+#     "postedBy": "666746d3a27909055f5ce7f9"
+# }
 {
-    "type": "Scholarship",
-    "title": "FEC Scholarship 2024",
-    "description": "Sams giving away scholarships to students who are interested in PHP and JSP",
+    "type": "Job",
+    "title": "FEC Chatro League",
+    "description": "Moka bro giving away job at chatro league",
     "postedBy": "666746d3a27909055f5ce7f9"
 }
 ###
 
 #* Delete an opportunity
-DELETE http://localhost:3000/api/opportunities/66674c814dcd99e499818d0e
+DELETE http://localhost:3000/api/opportunities/66685d85259af257cc02d48b
+###
 
+#* Update an opportunity
+PUT http://localhost:3000/api/opportunities/6667501312bf8a6cb8ecbbd5
+Content-type: application/json
+
+{
+    "title": "FEC Scholarship 2026",
+    "description": "Sams giving away scholarships to students who are interested in PHP only",
+    "postedBy": "666746d3a27909055f5ce7f9"
+}
+###
+
+
+#* Toggle verification of an opportunity
+PUT http://localhost:3000/api/opportunities/toggleVerification/6667501312bf8a6cb8ecbbd5
+###
+
+#* Get all the verified opportunities
+GET http://localhost:3000/api/opportunities/verified
+###
+
+#* Get all the unverified opportunities
+GET http://localhost:3000/api/opportunities/unverified
+###
+
+#* Get all the opportunities of a particular type
+GET http://localhost:3000/api/opportunities/type/Scholarship
+###
+
+#* Get all the opportunities posted by a particular user
+GET http://localhost:3000/api/opportunities/user/666746d3a27909055f5ce7f9
+###
+
+#* Search for opportunities with title containing the search query
+GET http://localhost:3000/api/opportunities/search/FEC%20Scholarship
+###
 
 ###

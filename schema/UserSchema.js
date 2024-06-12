@@ -7,7 +7,11 @@ const userSchema = new mongoose.Schema({
     phoneNumber: { type: String, required: true },
     cgpa: { type: Number },
     batch: { type: String, required: true },
-    department: { type: String, required: true },
+    department: { 
+        type: String, 
+        required: true,
+        enum: ['Computer Science', 'Electrical Engineering', 'Civil Engineering']
+    },
     photo: { type: String, required: true },
     isIndustryExpert: { type: Boolean, default: false },
     isHigherStudyExpert: { type: Boolean, default: false },
